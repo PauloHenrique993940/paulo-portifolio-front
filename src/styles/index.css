@@ -1,0 +1,471 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-bg-color: #1a2a2a;
+    /* Dark greenish background */
+    --text-color-light: #52c59a;
+    /* Light green for text */
+    --text-color-dark: #3a8a6d;
+    /* Darker green for some elements */
+    --header-bg: rgba(26, 42, 42, 0.8);
+    /* Slightly transparent header */
+    --social-link-bg: #52c59a;
+    /* Social link background */
+    --social-link-icon: #1a2a2a;
+    /* Social link icon color */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    /* Use a font that matches the image closer */
+    color: var(--text-color-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+    /* Background pattern - This is tricky and would require an actual image or complex CSS */
+    background-image: url('../assets/fundolinha.avif');
+    /* Replace with your actual image path */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Or contain, depending on the image */
+    background-position: center center;
+}
+
+/* App Container */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 3rem;
+    background-color: transparent;
+    /* Initially transparent */
+    z-index: 1000;
+    display: flex;
+}
+
+.header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.header nav ul li a {
+    color: var(--text-color-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+}
+
+.header nav ul li a:hover {
+    color: var(--text-color-dark);
+    /* Slightly darker on hover */
+}
+
+/* Social Links */
+.social-links {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+    background-color: var(--social-link-bg);
+    /* Green background for the bar */
+    border-radius: 5px 0 0 5px;
+    /* Rounded left corners */
+    z-index: 999;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: var(--social-link-icon);
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+}
+
+/* Main Content Area */
+.content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 4rem 3rem;
+    /* Adjust padding as needed */
+    margin-top: 5rem;
+    /* Space for the fixed header */
+    margin-right: 60px;
+    /* Space for the fixed social links */
+}
+
+/* Home Section */
+.home-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 5rem;
+    /* Indent the text as in the image */
+    max-width: 800px;
+    /* Limit width for readability */
+}
+
+.home-section .name {
+    font-size: 32px;
+    /* Adjust as per image */
+    font-weight: bold;
+    color: var(--text-color-light);
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+    text-align: justify;
+    font-family: 'Inter', sans-serif;
+    /* Or a similar clean, wide font */
+}
+
+.home-section .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-color-light);
+    letter-spacing: 0.1em;
+    margin-top: 1rem;
+}
+
+.home-section .email {
+    font-size: 1rem;
+    color: var(--text-color-dark);
+    margin-top: 1.5rem;
+}
+
+/* About and Projects Sections (basic styling) */
+/* ... (previous global styles like body, .app-container, header, social-links, footer) ... */
+
+/* Main Content Adjustments for About Page Layout */
+/* Adjust the .content for the about page specifically */
+.content {
+    flex-grow: 1;
+    display: flex;
+    /* Changed from display: flex on parent, to display: flex on about-section */
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 3rem;
+    /* Adjust padding as needed */
+    margin-top: 5rem;
+    /* Space for the fixed header */
+    margin-right: 60px;
+    /* Space for the fixed social links */
+    /* Remove text-align: left; from here if you want individual sections to control it */
+    text-align: initial;
+    /* Reset text alignment for flex container */
+}
+
+/* About Section Specific Styles */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* Take full width of the content area */
+    max-width: 1400px;
+    /* Adjust max width for the entire section */
+    gap: 3rem;
+    /* Space between text and image */
+    padding: 2rem 0;
+    /* Adjust padding within the section */
+    background-color: transparent;
+    /* No background color for the section itself */
+    border-radius: 0;
+    /* No border radius */
+}
+
+.about-content {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    /* Max width for the inner content wrapper */
+    gap: 4rem;
+    /* Space between the text column and image column */
+    align-items: flex-start;
+    /* Align items to the top */
+}
+
+
+.about-text {
+    flex: 2;
+    /* Text takes more space */
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    /* Space between paragraphs */
+    color: var(--text-color-dark);
+    /* Default text color for the main paragraphs */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: left;
+    /* Ensure text is left-aligned */
+}
+
+.about-text .greeting {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--text-color-light);
+    /* "Olá," in brighter green */
+    margin-bottom: -0.5rem;
+    /* Reduce space after "Olá," */
+}
+
+.about-text .name-intro {
+    font-size: 3rem;
+    /* "meu nome é Danielle Silva" */
+    font-weight: bold;
+    color: var(--text-color-light);
+    /* Brighter green */
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.about-text p {
+    margin-bottom: 0.5rem;
+    /* Default margin for paragraphs */
+}
+
+.about-text .paragraph-margin {
+    margin-bottom: 1.5rem;
+    /* Larger margin for distinct paragraphs */
+}
+
+
+.about-text .highlight {
+    color: var(--text-color-light);
+    /* Highlighted words in brighter green */
+    font-weight: 600;
+}
+
+.about-text .call-to-action {
+    color: var(--text-color-light);
+    /* Brighter green for the call to action */
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-text .divider-line {
+    width: 150px;
+    /* Width of the green line */
+    height: 2px;
+    background-color: var(--text-color-light);
+    /* Green color */
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.about-image-container {
+    flex: 1;
+    /* Image container takes remaining space */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Align image to the top */
+    position: relative;
+    /* For potential positioning of the image */
+    padding-top: 2rem;
+    /* Adjust to match the vertical alignment in the image */
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 100%;
+    /* Adjust max-width to control image size */
+    height: auto;
+    border-radius: 8px;
+    /* Slightly rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    /* Subtle shadow for depth */
+    object-fit: cover;
+    /* Ensure image covers the area without distortion */
+}
+
+
+/* Media Queries for Responsiveness (basic example) */
+@media (max-width: 1024px) {
+    .about-content {
+        flex-direction: column;
+        /* Stack columns on smaller screens */
+        align-items: center;
+        /* Center items when stacked */
+        gap: 2rem;
+    }
+
+    .about-text {
+        text-align: center;
+        /* Center text on smaller screens */
+        padding: 0 1rem;
+        /* Add some horizontal padding */
+    }
+
+    .about-text .divider-line {
+        margin-left: auto;
+        margin-right: auto;
+        /* Center the divider line */
+    }
+
+    .home-section .name {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem 1.5rem;
+    }
+
+    .header nav ul {
+        gap: 1rem;
+    }
+
+    .header nav ul li a {
+        font-size: 0.9rem;
+    }
+
+    .social-links {
+        padding: 0.5rem 0.2rem;
+    }
+
+    .social-links a {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+
+    .content {
+        padding: 2rem 1.5rem;
+        margin-top: 4rem;
+        margin-right: 0;
+        /* No margin on smaller screens */
+    }
+
+    .home-section {
+        padding-left: 1rem;
+        /* Reduce padding */
+        text-align: center;
+    }
+
+    .home-section .name {
+        font-size: 3rem;
+    }
+
+    .home-section .subtitle {
+        font-size: 1rem;
+    }
+
+    .about-text .name-intro {
+        font-size: 2.2rem;
+    }
+
+    .about-text .greeting {
+        font-size: 1.5rem;
+    }
+}
+
+.projects-section {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Semi-transparent background */
+    border-radius: 8px;
+}
+
+.about-section h2,
+.projects-section h2 {
+    font-size: 2.5rem;
+    color: var(--text-color-light);
+    margin-bottom: 1.5rem;
+}
+
+.projects-section .project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.projects-section .project-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--text-color-dark);
+    transition: transform 0.3s ease;
+}
+
+.projects-section .project-card:hover {
+    transform: translateY(-5px);
+}
+
+.projects-section .project-card h3 {
+    color: var(--text-color-light);
+    margin-bottom: 0.5rem;
+}
+
+.projects-section .project-card p {
+    color: var(--text-color-dark);
+}
+
+
+.project-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+  justify-content: left;
+}
+
+.project-button {
+  text-decoration: none;
+  background: var(--text-color-dark); /* azul moderno */
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project-button:hover {
+  background: #8f94fb; /* roxo claro */
+  transform: translateY(-3px);
+}
