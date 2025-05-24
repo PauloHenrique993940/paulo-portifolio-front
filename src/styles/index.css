@@ -8,7 +8,7 @@
 :root {
     --primary-bg-color: #1a2a2a;
     /* Dark greenish background */
-    --text-color-light: #52c59a;
+    --text-color-light: #18e298;
     /* Light green for text */
     --text-color-dark: #3a8a6d;
     /* Darker green for some elements */
@@ -22,20 +22,35 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    /* Use a font that matches the image closer */
     color: var(--text-color-light);
+    background-color: var(--social-link-icon);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-    /* Prevent horizontal scroll */
-    /* Background pattern - This is tricky and would require an actual image or complex CSS */
-    background-image: url('../assets/fundolinha.avif');
-    /* Replace with your actual image path */
+    position: relative; /* Necessário para o ::before funcionar corretamente */
+    
+    background-image: url('../assets/sobreposicao-forma-abstrata-tecnologia-de-design-de-layout-de-quadro-preto-verde-com-brilhos-e-efeito-de-luz_70264-168.avif');
     background-repeat: no-repeat;
     background-size: cover;
-    /* Or contain, depending on the image */
     background-position: center center;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Sombra preta translúcida */
+    z-index: 0;
+}
+
+/* Para garantir que o conteúdo fique acima da sombra */
+body > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* App Container */
